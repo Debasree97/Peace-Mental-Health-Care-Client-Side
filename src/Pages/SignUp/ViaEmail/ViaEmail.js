@@ -2,22 +2,26 @@ import { Box } from "@mui/system";
 import EmailSharpIcon from "@mui/icons-material/EmailSharp";
 import PasswordSharpIcon from "@mui/icons-material/PasswordSharp";
 import AccountBoxSharpIcon from "@mui/icons-material/AccountBoxSharp";
-import { Button, Input } from "@mui/material";
-
+import { Button, Input, Typography } from "@mui/material";
+import useAuth from "../../../hooks/useAuth";
 import useFirebase from "../../../hooks/useFirebase";
+import { useState } from "react";
 
 const ViaEmail = () => {
   const {
     email,
     password,
+    error,
     handleNameInput,
     handleEmailInput,
     handlePasswordInput,
     handleSignUpWithEmail,
   } = useFirebase();
+  
+  const [isSignin, setIsSignin] = useState(false);
   return (
     <Box>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      {!isSignin && <Box sx={{ display: "flex", alignItems: "center" }}>
         <AccountBoxSharpIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
         <Input
           placeholder="Enter Your Name"
@@ -25,7 +29,7 @@ const ViaEmail = () => {
           type="text"
           onBlur={handleNameInput}
         />
-      </Box>
+      </Box>}
 
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <EmailSharpIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
@@ -46,7 +50,7 @@ const ViaEmail = () => {
           onBlur={handlePasswordInput}
         />
       </Box>
-
+      <Typography variant="p">{error}</Typography>
       <Button
         variant="contained"
         onClick={() => {

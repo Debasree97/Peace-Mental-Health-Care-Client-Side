@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializeAuthentication from "../Pages/SignUp/Firebase/firebase.init";
+import initializeAuthentication from "./../Pages/SignUp/Firebase/firebase.init";
 initializeAuthentication();
 
 const useFirebase = () => {
@@ -18,6 +18,7 @@ const useFirebase = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth();
 
@@ -54,7 +55,7 @@ const useFirebase = () => {
   const handleSignInWithEmail = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        setUser(result);
+        setUser(result.user);
         setError("");
         setUserName();
       })
@@ -65,11 +66,15 @@ const useFirebase = () => {
 
   // Goggle Sign In
   const signInWithGoogle = () => {
+    setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
+
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        setUser(result);
+        setUser(result.user);
       })
+      .finally(() => setIsLoading(false))
+
       .catch((error) => {
         setError(error.message);
       });
@@ -77,19 +82,23 @@ const useFirebase = () => {
 
   // Tracking User Profile
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+      } else {
+        setUser({});
       }
+      setIsLoading(false);
     });
+    return () => unsubscribed;
   }, []);
 
   // Sign Out
   const handleSignOut = () => {
+    setIsLoading(true);
     signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
+      .then(() => {})
+      .finally(() => setIsLoading(false))
       .catch((error) => {
         setError(error.message);
       });
@@ -101,6 +110,7 @@ const useFirebase = () => {
     error,
     name,
     user,
+    isLoading,
     handleNameInput,
     handleEmailInput,
     handlePasswordInput,

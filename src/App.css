@@ -38,5 +38,62 @@
 } */
 
 .font-link {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
+}
+
+.navlink-toggle {
+  display: none;
+}
+
+.toggle-btn {
+  display: none;
+}
+
+#check{
+  visibility: hidden;
+}
+
+/* Responsiveness(according to bootstrap breakpoints)*/
+
+/* Large Device */
+@media only screen and (max-width: 992px) {
+  .navlink-toggle {
+    flex-direction: column;
+    position: fixed;
+    top: 86px;
+    right: -100%;
+    display: block;
+    margin-top: 0;
+    background-color: #10375d;
+    padding: 15px;
+    transition: all 0.5s ease;
+  }
+
+  .single-navlink {
+    padding: 15px 0 15px 25px ;
+    text-align: center;
+
+  }
+
+  .toggle-btn {
+    color: #e0e2d5;
+    cursor: pointer;
+    display: block;
+  }
+
+  #check:checked ~ .navlink-toggle {
+    right: 0%;
+    width: 100%;
+  }
+
+  .navbar-title{
+    display: block;
+  }
+}
+
+/* Small Device */
+@media only screen and (max-width:576px) {
+  .navbar-title{
+    display: none;
+  }
 }
