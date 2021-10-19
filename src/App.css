@@ -53,10 +53,27 @@
   visibility: hidden;
 }
 
+.banner-title{
+  font-size: 400%;
+}
+
+.banner-container-img{
+    width: 60%;
+  }
+
+.banner-container-text{
+    width: 40%;
+    padding-right: 50px; 
+    padding-top: 5px;
+    
+  }
+
 /* Responsiveness(according to bootstrap breakpoints)*/
 
 /* Large Device */
 @media only screen and (max-width: 992px) {
+
+  /* Navbar */
   .navlink-toggle {
     flex-direction: column;
     position: fixed;
@@ -89,11 +106,44 @@
   .navbar-title{
     display: block;
   }
+
+  /* Banner */
+  .banner-title{
+    font-size: 250%;
+    text-align: center;
+  }
+
+  .banner-container-text{
+    padding-right: 30px;    
+  }
 }
 
+/* Medium Device */
+
+/* Banner */
+@media only screen and (max-width:768px) {
+  .banner-container{
+    flex-direction: column;
+  }
+  .banner-container-img,.banner-container-text{
+    width: 80%;
+    padding: 0;
+  }
+}
+
+
 /* Small Device */
+
 @media only screen and (max-width:576px) {
+
+  /* Navbar */
   .navbar-title{
     display: none;
   }
+
+
+  /* Banner */
+  .banner-title{
+  font-size: 220%;
+}
 }
