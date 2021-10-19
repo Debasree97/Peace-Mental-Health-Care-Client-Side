@@ -7,6 +7,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import About from "./Pages/About/About";
 import SignUp from "./Pages/SignUp/SignUp/SignUp";
 import ViaEmail from "./Pages/SignUp/ViaEmail/ViaEmail";
+import Details from "./Pages/Details/Details";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/detail/:disabiltyId">
+            <Details></Details>
           </Route>
           <Route path="/about">
             <About></About>
