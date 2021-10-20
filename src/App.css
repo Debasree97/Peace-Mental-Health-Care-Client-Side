@@ -57,11 +57,11 @@
   font-size: 400%;
 }
 
-.banner-container-img{
+.container-2{
     width: 60%;
   }
 
-.banner-container-text{
+.container-1{
     width: 40%;
     padding-right: 50px; 
     padding-top: 5px;
@@ -70,7 +70,6 @@
   .title-size{
     font-size: 20px;
   }
-
 
 /* Responsiveness(according to bootstrap breakpoints)*/
 
@@ -117,7 +116,7 @@
     text-align: center;
   }
 
-  .banner-container-text{
+  .container-1{
     padding-right: 30px;    
   }
 }
@@ -129,7 +128,7 @@
   .banner-container{
     flex-direction: column;
   }
-  .banner-container-img,.banner-container-text{
+  .container-2,.container-1{
     width: 80%;
     padding: 0;
   }

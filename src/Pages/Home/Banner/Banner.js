@@ -13,10 +13,10 @@ const Banner = () => {
       }}
       className="banner-container"
     >
-      <Box className="banner-container-img">
+      <Box className="container-2">
         <img src={banner} width="100%" alt="" />
       </Box>
-      <Box className="banner-container-text">
+      <Box className="container-1">
         <h1 style={{ color: "#05647a" }} className="banner-title">
           We are here to{" "}
           <span style={{ fontSize: "120%", color: "#6db8bb" }}>Help</span>

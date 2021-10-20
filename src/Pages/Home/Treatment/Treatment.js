@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Treatment = (props) => {
   const { id, name, shortDescription, img } = props.treatment;
@@ -29,8 +29,13 @@ const Treatment = (props) => {
           <p style={{ textAlign: "justify", fontSize: "17px" }}>
             {shortDescription}
           </p>
-          <Link to={`/detail/${id}`}>
-            <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+          <NavLink style={{ textDecoration: "none" }} to={`/detail/${id}`}>
+            <CardActions
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Button
                 size="small"
                 sx={{
@@ -43,7 +48,7 @@ const Treatment = (props) => {
                 Learn More
               </Button>
             </CardActions>
-          </Link>
+          </NavLink>
         </CardContent>
       </Card>
     </Box>
