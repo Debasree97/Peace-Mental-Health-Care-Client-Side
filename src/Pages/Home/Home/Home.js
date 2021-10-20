@@ -1,5 +1,5 @@
 import React from "react";
-import LatestNews from "../../LatestNews/LatestNews";
+import LatestNews from "../LatestNews/LatestNews";
 import Banner from "../Banner/Banner";
 import ContactUs from "../ContactUs/ContactUs";
 import Treatments from "../Treatments/Treatments";

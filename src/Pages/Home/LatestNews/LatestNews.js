@@ -27,7 +27,7 @@ const LatestNews = () => {
       </h1>
       <Box
       >
-        <div className="input-field" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div className="flex-direction" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
           <TextField
             defaultValue="Email Address"
             sx={{ backgroundColor: "#e0e2d5", color: "#10375d" }}

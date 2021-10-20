@@ -8,6 +8,7 @@ import About from "./Pages/About/About";
 import SignUp from "./Pages/SignUp/SignUp/SignUp";
 import ViaEmail from "./Pages/SignUp/ViaEmail/ViaEmail";
 import Details from "./Pages/Details/Details";
+import Research from "./Pages/Research/Research";
 
 function App() {
   return (
@@ -27,12 +28,15 @@ function App() {
           <Route path="/about">
             <About></About>
           </Route>
+          <Route path="/research">
+            <Research></Research>
+          </Route>
           <Route path="/signup">
             <SignUp></SignUp>
           </Route>
-          <Route to="/viaemail">
+          {/* <Route to="/viaemail">
             <ViaEmail></ViaEmail>
-          </Route>
+          </Route> */}
           <Route path="*">
             <NotFound></NotFound>
           </Route>
