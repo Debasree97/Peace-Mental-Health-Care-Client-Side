@@ -6,9 +6,10 @@ import Home from "./Pages/Home/Home/Home";
 import NotFound from "./Pages/NotFound/NotFound";
 import About from "./Pages/About/About";
 import SignUp from "./Pages/SignUp/SignUp/SignUp";
-import ViaEmail from "./Pages/SignUp/ViaEmail/ViaEmail";
 import Details from "./Pages/Details/Details";
 import Research from "./Pages/Research/Research";
+import LogIn from "./Pages/SignUp/LogIn/LogIn";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/detail/:disorderId">
+          <PrivateRoute path="/detail/:disorderId">
             <Details></Details>
-          </Route>
+          </PrivateRoute>
           <Route path="/about">
             <About></About>
           </Route>
@@ -34,9 +35,9 @@ function App() {
           <Route path="/signup">
             <SignUp></SignUp>
           </Route>
-          {/* <Route to="/viaemail">
-            <ViaEmail></ViaEmail>
-          </Route> */}
+          <Route to="/login">
+            <LogIn></LogIn>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

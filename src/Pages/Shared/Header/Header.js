@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Box } from "@mui/system";
 import logo from "../../../images/logo.png";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 // import useAuth from "../../../hooks/useAuth";
-import { Button, Divider, List, Typography } from "@mui/material";
-//  import useFirebase from "../../../hooks/useFirebase";
+import { Button, Divider, } from "@mui/material";
+import useFirebase from "../../../hooks/useFirebase";
 
 const Header = () => {
-  // const { user, handleSignOut } = useFirebase();\
+  const { user, handleSignOut } = useFirebase();
 
   const navLinkStyle = {
     color: "#e0e2d5",
@@ -71,16 +71,37 @@ const Header = () => {
             Research
           </NavLink>
         </li>
+        <Divider sx={{ backgroundColor: "#e0e2d5", ml: 4 }} />
+        <li className="single-navlink">
+          {user?.displayName ? (
+            <Box>
+              <span style={{ color: "#e0e2d5",marginRight:"5px" }}>
+                Hello, {user?.displayName}
+              </span>
+              <Button
+                onClick={handleSignOut}
+                variant="contained"
+                sx={{
+                  backgroundColor: "#e0e2d5",
+                  color: "#10375d",
+                  fontWeight: "600",
+                  px: 2,
+                }}
+              >
+                Sign Out
+              </Button>
+            </Box>
+          ) : (
+            <NavLink
+              style={navLinkStyle}
+              activeStyle={activeStyle}
+              to="/signup"
+            >
+              Sign Up
+            </NavLink>
+          )}
+        </li>
       </ul>
-
-      {/* {user?.email ? (
-        <Box>
-          <Typography variant="p">Hello, {user?.displayName}</Typography>
-          <Button variant="contained">SignOut</Button>
-        </Box>
-      ) : (
-        <NavLink to="/signup">Sign Up</NavLink>
-      )} */}
     </Box>
   );
 };

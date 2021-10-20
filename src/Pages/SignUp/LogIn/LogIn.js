@@ -2,20 +2,10 @@ import { Button, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import useAuth from "./../../../hooks/useAuth";
 import useFirebase from "../../../hooks/useFirebase";
 
-const SignUp = () => {
-  const {
-    signInWithGoogle,
-    handleSignUpWithEmail,
-    email,
-    password,
-    error,
-    handleEmailInput,
-    handleNameInput,
-    handlePasswordInput,
-  } = useFirebase();
+const LogIn = () => {
+    const { handleSignInWithEmail } = useFirebase();
   return (
     <Box sx={{ backgroundColor: "#10375d" }}>
       <Box
@@ -35,12 +25,8 @@ const SignUp = () => {
         <h1 className="custom-font" style={{ lineHeight: 0, color: "#e0e2d5" }}>
           KEEP UP WITH PEACE
         </h1>
-        <h1
-          onClick={handleSignUpWithEmail}
-          className="custom-font"
-          style={{ color: "#e0e2d5" }}
-        >
-          Sign Up Today
+        <h1 className="custom-font" style={{ color: "#e0e2d5" }}>
+          Log In
         </h1>
         <Box>
           <div
@@ -52,32 +38,23 @@ const SignUp = () => {
             }}
           >
             <TextField
-              onBlur={handleNameInput}
-              placeholder="Your Name"
-              required
-              sx={{ backgroundColor: "#e0e2d5", color: "#10375d" }}
-            />
-            <TextField
-              onBlur={handleEmailInput}
               placeholder="Email Address"
               required
               sx={{ backgroundColor: "#e0e2d5", color: "#10375d" }}
             />
             <TextField
-              onBLur={handlePasswordInput}
               placeholder="Password"
-              required
+                          required
+                          type="password"
               sx={{ backgroundColor: "#e0e2d5", color: "#10375d" }}
             />
           </div>
         </Box>
         <Box sx={{ mt: 2 }}>
-          <NavLink style={{ textDecoration: "none" }} to="/home">
-            <Button
+          <NavLink style={{ textDecoration: "none" }} to="/signup">
+                      <Button
+                          onClick={handleSignInWithEmail}
               variant="contained"
-              onClick={() => {
-                handleSignUpWithEmail(email, password);
-              }}
               sx={{
                 backgroundColor: "#e0e2d5",
                 color: "#10375d",
@@ -86,14 +63,13 @@ const SignUp = () => {
                 mb: 4,
               }}
             >
-              Sign Up
+              Log In
             </Button>
           </NavLink>
         </Box>
-        <p style={{ color: "red" }}>{error}</p>
         <Box>
           <NavLink
-            to="/login"
+            to="/signup"
             style={{
               textDecoration: "none",
               color: "#e0e2d5",
@@ -102,36 +78,13 @@ const SignUp = () => {
               px: 4,
             }}
           >
-            Already has an account?{" "}
-            <span style={{ fontWeight: "600" }}>Log In</span>
+            Don't have an account?
+            <span style={{ fontWeight: "600" }}>Sign Up</span>
           </NavLink>
-        </Box>
-        <Box>
-          <h1
-            className="title-size"
-            style={{ color: "#e0e2d5", marginTop: "50px" }}
-          >
-            OR, Sign In with Google
-          </h1>
-        </Box>
-        <Box sx={{ mt: 2 }}>
-          <Button
-            onClick={signInWithGoogle}
-            variant="contained"
-            sx={{
-              backgroundColor: "#e0e2d5",
-              color: "#10375d",
-              fontWeight: "600",
-              px: 4,
-              mb: 3,
-            }}
-          >
-            Google Sign In
-          </Button>
         </Box>
       </Box>
     </Box>
   );
 };
 
-export default SignUp;
+export default LogIn;
