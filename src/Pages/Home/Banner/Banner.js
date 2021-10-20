@@ -11,7 +11,7 @@ const Banner = () => {
         alignItems: "center",
         m: 0,
       }}
-      className="banner-container"
+      className="container"
     >
       <Box className="container-2">
         <img src={banner} width="100%" alt="" />

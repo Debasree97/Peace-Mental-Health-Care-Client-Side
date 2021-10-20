@@ -3,7 +3,8 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import singleDisorderImg from "../../images/singleDisorderImg.png";
+import singleDisorderImg1 from "../../images/singleDisorderImg1.png";
+import singleDisorderImg2 from "../../images/singleDisorderImg2.png";
 
 const Details = () => {
   let { disorderId } = useParams();
@@ -45,13 +46,13 @@ const Details = () => {
       >
         <Box>
           <img
-            src={singleDisorderImg}
+            src={singleDisorderImg1}
             alt=""
-                      srcset=""
-                      style={{width:"40vw"}}
+            srcset=""
+            style={{ width: "40vw" }}
           />
         </Box>
-        <Box sx={{ p: 10 ,pt:0}}>
+        <Box sx={{ px: 10}}>
           <Paper
             square
             elevation={10}
@@ -67,6 +68,14 @@ const Details = () => {
               {disorder?.description}
             </p>
           </Paper>
+        </Box>
+        <Box>
+          <img
+            src={singleDisorderImg2}
+            alt=""
+            srcset=""
+            style={{ width: "40vw" }}
+          />
         </Box>
       </Box>
     </Box>

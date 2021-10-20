@@ -49,33 +49,36 @@
   display: none;
 }
 
-#check{
+#check {
   visibility: hidden;
 }
 
-.banner-title{
+.banner-title {
   font-size: 400%;
 }
 
-.container-2{
-    width: 60%;
-  }
+.container-2 {
+  width: 60%;
+}
 
-.container-1{
-    width: 40%;
-    padding-right: 50px; 
-    padding-top: 5px;
-  }
+.container-1 {
+  width: 40%;
+  padding-right: 50px;
+  padding-top: 5px;
+}
 
-  .title-size{
-    font-size: 20px;
-  }
+.title-size {
+  font-size: 20px;
+}
+
+.custom-font {
+  font-size: 40px;
+}
 
 /* Responsiveness(according to bootstrap breakpoints)*/
 
 /* Large Device */
 @media only screen and (max-width: 992px) {
-
   /* Navbar */
   .navlink-toggle {
     flex-direction: column;
@@ -90,9 +93,8 @@
   }
 
   .single-navlink {
-    padding: 15px 0 15px 25px ;
+    padding: 15px 0 15px 25px;
     text-align: center;
-
   }
 
   .toggle-btn {
@@ -106,66 +108,78 @@
     width: 100%;
   }
 
-  .navbar-title{
+  .navbar-title {
     display: block;
   }
 
   /* Banner */
-  .banner-title{
+  .banner-title {
     font-size: 250%;
     text-align: center;
   }
 
-  .container-1{
-    padding-right: 30px;    
+  .container-1 {
+    padding-right: 30px;
+  }
+
+  .custom-font {
+    font-size: 30px;
   }
 }
 
 /* Medium Device */
 
 /* Banner */
-@media only screen and (max-width:768px) {
-  .banner-container{
+@media only screen and (max-width: 768px) {
+  .container {
     flex-direction: column;
   }
-  .container-2,.container-1{
+  .container-2,
+  .container-1 {
     width: 80%;
     padding: 0;
   }
 
   /* Services */
-  .home-card{
+  .home-card {
     flex-direction: column;
     align-items: center;
-    margin:0 5px;
+    margin: 0 5px;
   }
 
-  .card-title{
+  .card-title {
     font-size: 30px;
   }
 
-  .title-size{
+  .title-size {
     font-size: 16px;
   }
-}
 
+  
+}
 
 /* Small Device */
 
-@media only screen and (max-width:576px) {
-
+@media only screen and (max-width: 576px) {
   /* Navbar */
-  .navbar-title{
+  .navbar-title {
     display: none;
   }
 
   /* Banner */
-  .banner-title{
-  font-size: 220%;
+  .banner-title {
+    font-size: 220%;
+  }
 
-}
-
-.title-size{
+  .title-size {
     font-size: 12px;
+  }
+
+  .custom-font {
+    font-size: 20px;
+  }
+
+  .input-field{
+    flex-direction: column;
   }
 }
