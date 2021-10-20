@@ -35,7 +35,7 @@ function App() {
           <Route path="/signup">
             <SignUp></SignUp>
           </Route>
-          <Route to="/login">
+          <Route path="/login">
             <LogIn></LogIn>
           </Route>
           <Route path="*">
